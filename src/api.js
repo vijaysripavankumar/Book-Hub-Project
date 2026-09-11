@@ -1,4 +1,6 @@
-const BASE_URL = import.meta.env.DEV ? '/api' : 'https://apis.ccbp.in'
+// Both Vite (development) and Vercel (production) proxy this path to CCBP.
+// Keeping this relative prevents browser CORS requests in the deployed app.
+const BASE_URL = '/api'
 
 const authHeaders = () => {
   const token = document.cookie

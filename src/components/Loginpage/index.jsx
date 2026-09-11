@@ -31,14 +31,11 @@ const Login = () => {
     setShowSubmitError(false)
     setIsSubmitting(true)
     try {
-      const response = await fetch(
-        import.meta.env.DEV ? '/api/login' : 'https://apis.ccbp.in/login',
-        {
+      const response = await fetch('/api/login', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
           body: JSON.stringify({username, password}),
-        },
-      )
+      })
       const data = await response.json()
       if (!response.ok) {
         throw new Error(data.error_msg || 'Unable to sign in. Please try again.')
